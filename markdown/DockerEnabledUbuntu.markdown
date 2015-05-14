@@ -7,3 +7,5 @@ Reference: [https://registry.hub.docker.com/u/sameersbn/gitlab/](https://registr
 	curl -s https://get.docker.io/ubuntu/ | sudo sh
 	sudo apt-get update
 	sudo apt-get install lxc-docker
+
+.
