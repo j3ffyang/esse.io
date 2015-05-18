@@ -34,3 +34,7 @@ chmod 400 /pool/gitlab/certs/gitlab.key
 		--env='GITLAB_HTTPS=true' --env='SSL_SELF_SIGNED=true' --volume=/pool/gitlab:/home/git/data \
 		sameersbn/gitlab:7.10.4
 
+
+## Enable HSTS to Force All Traffic to Go through HTTPS
+
+	--env='GITLAB_HTTPS_HSTS_MAXAGE=2592000'
