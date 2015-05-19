@@ -39,3 +39,8 @@ To strength the server security, we need to generate stronger DHE parameters.
 ## Enable HSTS to Force All Traffic to Go through HTTPS
 
 	--env='GITLAB_HTTPS_HSTS_MAXAGE=2592000'
+
+	docker run --name='gitlab' -d --link=postgresql-gitlab:postgresql --link=redis-gitlab:redisio \
+		--publish=10022:22 --publish=10443:443 --env='GITLAB_PORT=443' --env='GITLAB_SSH_PORT=10022' \
+		 --env='GITLAB_HTTPS=true' --env='SSL_SELF_SIGNED=true' --env='GITLAB_HTTPS_HSTS_MAXAGE=2592000' \
+		--volume=/pool/gitlab:/home/git/data sameersbn/gitlab:7.10.4 
