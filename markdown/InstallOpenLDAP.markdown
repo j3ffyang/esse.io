@@ -2,7 +2,8 @@ Reference > https://github.com/nickstenning/docker-slapd/blob/master/README.md o
 
 ## Pull OpenLDAP
 
-	docker run --name='ldap' -p 389:389 -v /pool/slapd/ldap:/var/lib/ldap -v /pool/slapd/config:/etc/ldap/slapd.d \
+	docker run --name='ldap' -p 389:389 -v /pool/slapd/ldap:/var/lib/ldap \
+		-v /pool/slapd/config:/etc/ldap/slapd.d \
 		-e LDAP_DOMAIN="esse.io" -e LDAP_ORGANISATION="esse.io" -e LDAP_ADMIN_PASSWORD=mysecret \
 		-e SERVER_NAME="ldap" -d nickstenning/slapd
 
