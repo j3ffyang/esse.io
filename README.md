@@ -8,5 +8,6 @@
   * [Enable SSL and Launch GitLab](markdown/EnableSSL.markdown)
   * [Install OpenLDAP in Docker](markdown/InstallOpenLDAP.markdown)
 
-## Security
-  * [PostgreSQL]
+## Security Consideration
+  * [Security Tips](markdown/SecurityTips.markdown)
+
