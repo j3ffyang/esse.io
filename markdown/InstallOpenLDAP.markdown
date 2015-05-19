@@ -1,4 +1,5 @@
-Reference > https://github.com/nickstenning/docker-slapd/blob/master/README.md or > [https://github.com/osixia/docker-phpLDAPadmin](https://github.com/osixia/docker-phpLDAPadmin) 
+Reference > https://github.com/nickstenning/docker-slapd/blob/master/README.md
+      and > [https://github.com/osixia/docker-phpLDAPadmin](https://github.com/osixia/docker-phpLDAPadmin) 
 
 ## Pull OpenLDAP
 
