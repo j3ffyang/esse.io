@@ -6,7 +6,7 @@
   * [Install Redis in  Docker](markdown/InstallRedis.markdown)
   * [Install and Configure PostgreSQL in Docker](markdown/InstallPostgreSQL.markdown)
   * [Enable SSL and Launch GitLab](markdown/EnableSSL.markdown)
-  * [Install OpenLDAP in Docker](markdown/InstallOpenLDAP.markdown)
+  * [Install and Configure OpenLDAP in Docker](markdown/InstallOpenLDAP.markdown)
 
 ## Security Consideration
   * [Security Tips](markdown/SecurityTips.markdown)
