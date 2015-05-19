@@ -1,4 +1,4 @@
-## Create SLL
+## Create SSL
 
 ### Create the server private key
 
