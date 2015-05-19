@@ -12,17 +12,18 @@
 
 	openssl x509 -req -days 365 -in gitlab.csr -signkey gitlab.key -out gitlab.crt	
 
-### To strength the server security, we need to generate stronger DHE parameters.
+### Generate Stronger DHE Parameters.
+To strength the server security, we need to generate stronger DHE parameters.
 
 	openssl dhparam -out dhparam.pem 2048	
 
 ## Installation of the SSL Certificates
 
-mkdir -p /pool//gitlab/certs
-cp gitlab.key /pool/gitlab/certs/
-cp gitlab.crt /pool/gitlab/certs/
-cp dhparam.pem /pool/gitlab/certs/
-chmod 400 /pool/gitlab/certs/gitlab.key
+	mkdir -p /pool//gitlab/certs
+	cp gitlab.key /pool/gitlab/certs/
+	cp gitlab.crt /pool/gitlab/certs/
+	cp dhparam.pem /pool/gitlab/certs/
+	chmod 400 /pool/gitlab/certs/gitlab.key	
 
 ## Apply the Change
 
