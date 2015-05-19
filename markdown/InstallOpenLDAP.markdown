@@ -1,21 +1,13 @@
-Reference > https://github.com/nickstenning/docker-slapd/blob/master/README.md
+Reference > https://github.com/nickstenning/docker-slapd/blob/master/README.md or > [https://github.com/osixia/docker-phpLDAPadmin](https://github.com/osixia/docker-phpLDAPadmin) with OpenLDAP and PhpLDAPadmin combined
 
 ## Pull OpenLDAP
-	mkdir -p /pool/ldap
 
-	docker run -v /pool/ldap:/var/lib/ldap -e LDAP_DOMAIN=esse.io -e LDAP_ORGANISATION="esse.io" \
-		-e LDAP_ROOTPASS=mysecret -d nickstenning/slapd
+	docker run --name='ldap' -p 389:389 -v /pool/slapd/ldap:/var/lib/ldap -v /pool/slapd/config:/etc/ldap/slapd.d \
+		-e LDAP_DOMAIN="esse.io" -e LDAP_ORGANISATION="esse.io" -e LDAP_ADMIN_PASSWORD=mysecret \
+		-e SERVER_NAME="ldap" -d nickstenning/slapd
 
+	docker run --name='phpldapadmin' -p 11443:443 -e LDAP_HOSTS=192.168.102.2 \
+		-v /pool/gitlab_ssl/:/osixia/phpldapadmin/apache2/ssl -e SSL_CRT_FILENAME=gitlab.crt \
+		-e SSL_KEY_FILENAME=gitlab.key -d osixia/phpldapadmin
 
-
-
-	docker run -d -p 389:389 -v /data/slapd/config:/etc/ldap/slapd.d -v /data/slapd/database:/var/lib/ldap \
-		-e LDAP_ORGANISATION=Zerbtech -e LDAP_DOMAIN="idevops.net" -e LDAP_ADMIN_PASSWORD="myseret" -e \
-		SERVER_NAME="ldap" -e USE_TLS=false --name ldap 192.168.200.3:5000/openldap:0.10.1	
-
-	docker run -p 4403:443 -e LDAP_HOSTS=192.168.200.5 -e SSL_CRT_FILENAME=ldap.crt -e \
-		SSL_KEY_FILENAME=ldap.key -v /var/opt/chef-server/nginx/ca:/osixia/phpldapadmin/apache2/ssl -d \
-		--name phpldapadmin 192.168.200.3:5000/phpldapadmin:0.5.0	
-
-
-
+Security Tip: slapd process running over port 389 is open to public if your firewall isn't configured properly!
