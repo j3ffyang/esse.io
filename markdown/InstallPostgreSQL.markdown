@@ -2,9 +2,13 @@
 
 Reference > [https://registry.hub.docker.com/_/postgres/](https://registry.hub.docker.com/_/postgres/)
 
-PostgreSQL is supposed to run a dedicated partition, which is mounted to operating system separatedly. In my case, /pool/postgresql is created and mounted for PostgreSQL data
+PostgreSQL is supposed to run a dedicated partition, which is mounted to operating system separatedly. In my case, the path mounted for PostgreSQL data
 
-/var/lib/postgresql/data is default path that contains database
+	/pool/postgresql 
+
+The default path that contains database	
+
+	/var/lib/postgresql/data 
 
 ## Pull and Configure PostgreSQL
 	docker run --name='gitlab' -d --link=postgresql-gitlab:postgresql --link=redis-gitlab:redisio \
