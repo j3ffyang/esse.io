@@ -40,3 +40,19 @@ Security Tip: slapd process running over port 389 is open to public if your fire
 Install ldapadd from any box which can access OpenLDAP
 
 	ldapadd -h 192.168.102.2 -x -D "cn=admin,dc=esse,dc=io" -f ldap.ldif -W
+
+## Modify Sample	
+
+	cat ldap_mod.ldif
+	dn: ou=people,dc=esse,dc=io
+	changetype: Modify
+	replace: userpassword
+	userpassword: anothersecret
+	
+	dn: cn=james,ou=people,dc=esse,dc=io
+	changetype: Modify
+	replace: userpassword
+	userpassword: anothersecret
+
+ldapmodify -h 192.168.102.2 -x -D "cn=admin,dc=esse,dc=io" -f ldap_mod.ldif -W
+
