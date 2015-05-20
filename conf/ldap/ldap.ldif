@@ -1,0 +1,16 @@
+dn: ou=people,dc=esse,dc=io
+ou: people
+description: All developers in organisation
+objectclass: organizationalunit
+
+dn: cn=david,ou=people,dc=esse,dc=io
+objectclass: inetOrgPerson
+cn: bryan
+displayName: Bryan Huang
+sn: bryan
+uid: bryan
+userpassword: mysecret
+homephone: 555-111-2222
+mail: bryan@esse.io
+description: Bryan Huang
+ou: people
