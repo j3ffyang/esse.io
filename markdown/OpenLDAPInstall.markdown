@@ -3,10 +3,10 @@ Reference > https://github.com/nickstenning/docker-slapd/blob/master/README.md
 
 ## Pull OpenLDAP
 
-	docker run --name='ldap' -p 389:389 -v /pool/slapd/ldap:/var/lib/ldap \
-		-v /pool/slapd/config:/etc/ldap/slapd.d \
-		-e LDAP_DOMAIN="esse.io" -e LDAP_ORGANISATION="esse.io" -e LDAP_ADMIN_PASSWORD=mysecret \
-		-e SERVER_NAME="ldap" -d nickstenning/slapd
+	docker run --name=ldap -p 389:389 -e LDAP_ORGANISATION="esse.io" -e LDAP_DOMAIN="esse.io" \
+		-e LDAP_ADMIN_PASSWORD="secret" -v /pool/slapd/ldap:/var/lib/ldap 
+		-v /pool/slapd/config:/etc/ldap/slapd.d -d osixia/openldap
+
 
 Security Tip: slapd process running over port 389 is open to public if your firewall isn't configured properly!
 
@@ -54,5 +54,5 @@ Install ldapadd from any box which can access OpenLDAP
 	replace: userpassword
 	userpassword: anothersecret
 
-ldapmodify -h 192.168.102.2 -x -D "cn=admin,dc=esse,dc=io" -f ldap_mod.ldif -W
+	ldapmodify -h 192.168.102.2 -x -D "cn=admin,dc=esse,dc=io" -f ldap_mod.ldif -W
 
