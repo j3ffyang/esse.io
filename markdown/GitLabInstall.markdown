@@ -18,6 +18,6 @@ Reference > https://github.com/sameersbn/docker-gitlab
 		--env='GITLAB_HTTPS=true' --env='SSL_SELF_SIGNED=true' --env='GITLAB_HTTPS_HSTS_MAXAGE=2592000' \
 		--env='LDAP_ENABLED=yes' --env='LDAP_HOST=192.168.102.2' --env='LDAP_PORT=389' \
 		--env='LDAP_UID=mail' -e "LDAP_BIND_DN=cn=admin,dc=esse,dc=io" -e "LDAP_PASS=secret" \
-		-e "LDAP_METHOD=plain" --e 'LDAP_BASE=ou=people,dc=esse,dc=io' --e 'LDAP_ACTIVE_DIRECTORY=false' \
+		-e "LDAP_METHOD=plain" -e 'LDAP_BASE=ou=people,dc=esse,dc=io' -e 'LDAP_ACTIVE_DIRECTORY=false' \
 		--env='LDAP_ALLOW_USERNAME_OR_EMAIL_LOGIN=false' \
 		--volume=/pool/gitlab:/home/git/data sameersbn/gitlab:7.10.4
