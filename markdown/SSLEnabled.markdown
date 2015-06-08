@@ -19,7 +19,7 @@ To strength the server security, we need to generate stronger DHE parameters.
 
 ## Installation of the SSL Certificates
 
-	mkdir -p /pool//gitlab/certs
+	mkdir -p /pool/gitlab/certs
 	cp gitlab.key /pool/gitlab/certs/
 	cp gitlab.crt /pool/gitlab/certs/
 	cp dhparam.pem /pool/gitlab/certs/

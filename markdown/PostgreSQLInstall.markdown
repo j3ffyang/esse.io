@@ -12,15 +12,18 @@ The default path that contains database
 
 ## Launch PostgreSQL
 
-	docker run --name=postgresql-gitlab -d --env='DB_NAME=gitlab' --env='DB_USER=gitlab' --env='DB_PASS=secret' \
-	--volume=/pool/postgresql:/var/lib/postgresql sameersbn/postgresql:9.4		
+	docker run --name=postgresql-gitlab -d --env='DB_NAME=gitlab' --env='DB_USER=gitlab' --env='DB_PASS=mysecret' \
+		--volume=/data/postgresql:/var/lib/postgresql sameersbn/postgresql:9.4
 
 ## Data Store
 Since GitLab data is stored at /home/git/data, which is mounted to /pool/gitlab, the path "/pool/gitlab" is the actual data source. You should backup this mount point to keep your repo data safe.
 
 ## Create Database in External PostgreSQL
 
-	gitlab=# create database gitlabhq_production;             
+	su - postgres
+	psql
+
+	postgres=# create database gitlabhq_production;             
 	CREATE DATABASE
 	gitlab=# \l
 	                                  List of databases
@@ -37,5 +40,5 @@ Since GitLab data is stored at /home/git/data, which is mounted to /pool/gitlab,
 	                     |          |          |         |       | postgres=CTc/postgres
 	(5 rows)
 	
-	gitlab=# grant all privileges on database gitlabhq_production to gitlab;
+	postgres=# grant all privileges on database gitlabhq_production to gitlab;
 	
