@@ -4,8 +4,8 @@ Reference > https://github.com/nickstenning/docker-slapd/blob/master/README.md
 ## Pull OpenLDAP
 
 	docker run --name=ldap -p 389:389 -e LDAP_ORGANISATION="esse.io" -e LDAP_DOMAIN="esse.io" \
-		-e LDAP_ADMIN_PASSWORD="secret" -v /pool/slapd/ldap:/var/lib/ldap \
-		-v /pool/slapd/config:/etc/ldap/slapd.d -d osixia/openldap
+		-e LDAP_ADMIN_PASSWORD="secret" -v /data/slapd/ldap:/var/lib/ldap \
+		-v /data/slapd/config:/etc/ldap/slapd.d -d osixia/openldap
 
 
 Security Tip: slapd process running over port 389 is open to public if your firewall isn't configured properly!
