@@ -1,3 +1,5 @@
+# I stop updating this personal repo and switch to https://github.com/esse-io/
+
 # esse.io
 
 ## Analytics Archirecture
